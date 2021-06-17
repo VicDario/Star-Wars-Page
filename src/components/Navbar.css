@@ -1,0 +1,9 @@
+.navbar {
+    background-image: url('../img/navigation_stars.jpg');
+    border-bottom: 1px solid #a3a29e4a;
+}
+
+.navbar__logo {
+    max-width: 200px;
+    padding: 15px;
+}
