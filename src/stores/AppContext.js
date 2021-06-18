@@ -16,12 +16,14 @@ const injectContext = PassedComponent => {
         }));
 
         useEffect(() => {
-            //state.actions.getSaludo();
+           state.actions.updatePeople('https://www.swapi.tech/api/people?page=1&limit=9');
+           state.actions.updatePlanets('https://www.swapi.tech/api/planets?page=1&limit=9');
+           state.actions.updateSpecies('https://www.swapi.tech/api/species/?page=1&limit=9');
         }, [])
 
         return (
             <Context.Provider value={state}>
-                <PassedComponent />
+                <PassedComponent  {...props} />
             </Context.Provider>
         )
     }
