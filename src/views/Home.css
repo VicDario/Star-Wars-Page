@@ -1,6 +1,10 @@
 .card {
+    width: 400px;
     background-color: #282727;
     border: none;
+    margin: 0 10px 0 0;
+    padding: 0;
+    display: inline-block;
 }
 
 .card img {
@@ -21,4 +25,18 @@
     -o-filter: grayscale(0%);
     -ms-filter: grayscale(0%);
     filter: grayscale(0%);
+}
+
+.carousel {
+    width: auto;
+    padding: 10px;
+    white-space: nowrap;
+    overflow-y: hidden; 
+    overflow-x: auto;
+}
+
+@media (max-width: 600px) {
+    .card {
+        width: 320px;
+    }
 }
