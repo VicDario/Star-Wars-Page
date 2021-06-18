@@ -1,0 +1,15 @@
+.pagination .page-item.active .page-link {
+    background-color: rgba(255, 255, 255, 0.45);
+    border-radius: 100%;
+}
+.pagination .page-link {
+    background-color: transparent;
+    border: none;
+    color: white
+}
+.pagination .page-link:focus {
+    box-shadow: none;
+}
+.pagination .page-item.disabled  .page-link{
+    background-color: transparent;
+}

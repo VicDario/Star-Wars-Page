@@ -6,7 +6,10 @@ import Home from './views/Home';
 import CharactersPage from './views/CharactersPage';
 import SpeciesPage from './views/SpeciesPage';
 import PlanetsPage from './views/PlanetsPage';
-import Error404 from './views/Error404'
+import FilmsPage from './views/FilmsPage';
+import StarshipsPage from './views/StarshipsPage';
+import VehiclesPage from './views/VehiclesPage';
+import Error404 from './views/Error404';
 
 function App() {
 	return (
@@ -17,6 +20,9 @@ function App() {
 				<Route exact path="/characters" component={CharactersPage} />
 				<Route exact path="/species" component={SpeciesPage} />
 				<Route exact path="/planets" component={PlanetsPage} />
+				<Route exact path="/vehicles" component={VehiclesPage} />
+				<Route exact path="/starships" component={StarshipsPage} />
+				<Route exact path="/films" component={FilmsPage} />
                 <Route component={Error404} />
 			</Switch>
 		</BrowserRouter>

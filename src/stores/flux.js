@@ -60,6 +60,57 @@ const getState = ({ getStore, getActions , setStore}) => {
                     })
                 }
             },
+            updateVehicles: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ vehicles: data });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
+            updateStarships: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ starships: data });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
+            updateFilms: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ films: data });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
             getElement: async (url, element) => {
                 try {
                     const response = await fetch(url, {
