@@ -1,5 +1,5 @@
 html {
-  background-image: url('./img/bg_starsR.jpg');
+  background-image: url('/src/img/bg_starsR.jpg');
   background-repeat: no-repeat;
   background-color: #151515;
   background-position: right;
@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: transparent !important;
-  background-image: url('./img/bg_starsL.jpg');
+  background-image: url('/src/img/bg_starsL.jpg');
   background-repeat: no-repeat;
   min-height: 100vh;
 }
