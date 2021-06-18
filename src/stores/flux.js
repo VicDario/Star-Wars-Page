@@ -59,6 +59,23 @@ const getState = ({ getStore, getActions , setStore}) => {
                         error: error.message
                     })
                 }
+            },
+            getElement: async (url, element) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ element: data });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
             }
         }
     }

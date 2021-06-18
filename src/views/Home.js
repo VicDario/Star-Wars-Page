@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from 'react';
 import { Context } from '../stores/AppContext';
 import Carousel from '../components/Carousel'
 import './Home.css';

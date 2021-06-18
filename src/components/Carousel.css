@@ -1,4 +1,4 @@
-.card {
+.card-home {
     width: 400px;
     background-color: #282727;
     border: none;
@@ -7,7 +7,7 @@
     display: inline-block;
 }
 
-.card img {
+.card-home img {
     width: 100%;
     height: 250px;
     object-fit: cover;
@@ -19,7 +19,7 @@
     cursor: pointer;
 }
   
-.card img:hover {
+.card-home img:hover {
     -webkit-filter: grayscale(0%);
     -moz-filter: grayscale(0%);
     -o-filter: grayscale(0%);

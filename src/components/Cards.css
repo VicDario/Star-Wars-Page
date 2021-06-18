@@ -1,0 +1,8 @@
+.card-page {
+    background-color: #282727;
+    border: none
+}
+.card-page {
+    width: 100%;
+    object-fit: cover;
+}
