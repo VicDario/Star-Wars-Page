@@ -21,7 +21,7 @@ function CharactersPage (props) {
                 <h1 className="text-white title mt-4 mb-2">Characters</h1>
                 {
                     !!people ?
-                    <Cards elements ={people} />
+                    <Cards elements={people} route="people"/>
                     :
                     <LoadingSpiner />
                 }

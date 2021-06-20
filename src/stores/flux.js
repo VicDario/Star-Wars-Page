@@ -6,7 +6,8 @@ const getState = ({ getStore, getActions , setStore}) => {
             species: null,
             vehicles: null,
             films: null,
-            starships: null
+            starships: null,
+            character: null,
         },
         actions: {
             updatePeople: async (url) => {
@@ -111,7 +112,7 @@ const getState = ({ getStore, getActions , setStore}) => {
                     })
                 }
             },
-            getElement: async (url, element) => {
+            getCharacter: async (url) => {
                 try {
                     const response = await fetch(url, {
                         method: 'GET',
@@ -121,7 +122,28 @@ const getState = ({ getStore, getActions , setStore}) => {
                     });
                     if (response.status !== 200) throw new Error("Error API");
                     const data = await response.json();
-                    setStore({ element: data });
+
+                    let getHome = async (url) => {
+                        try {
+                            const response = await fetch(url, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                }
+                            });
+                            if (response.status !== 200) throw new Error("Error API");
+                            const data = await response.json();
+                            return data;
+                        } catch (error) {
+                            setStore({
+                                error: error.message
+                            })
+                        }
+                    }
+                    let home = await getHome(data.result.properties.homeworld);
+                    setStore({ 
+                        character : {data: data, planet: home}
+                    });
                 } catch (error) {
                     setStore({
                         error: error.message
