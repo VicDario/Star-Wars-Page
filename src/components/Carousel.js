@@ -7,7 +7,7 @@ function Carousel (props) {
         <div className="row my-5">
         <h2 className="text-white">
             {props.title}
-            <Link to={`/${props.title.toLowerCase()}`}><button type="button" className="btn btn-dark">See More</button></Link>
+            <Link to={`/${props.route}`}><button type="button" className="btn btn-dark">See More</button></Link>
             </h2>
         <div className="col-md-12 carousel">
         {

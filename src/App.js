@@ -9,6 +9,7 @@ import PlanetsPage from './views/PlanetsPage';
 import FilmsPage from './views/FilmsPage';
 import StarshipsPage from './views/StarshipsPage';
 import VehiclesPage from './views/VehiclesPage';
+import CharacterDetails from './views/CharacterDetails';
 import Error404 from './views/Error404';
 
 function App() {
@@ -17,12 +18,13 @@ function App() {
 			<Navbar />
 			<Switch>
 				<Route exact path="/" component={Home} />
-				<Route exact path="/characters" component={CharactersPage} />
+				<Route exact path="/people" component={CharactersPage} />
 				<Route exact path="/species" component={SpeciesPage} />
 				<Route exact path="/planets" component={PlanetsPage} />
 				<Route exact path="/vehicles" component={VehiclesPage} />
 				<Route exact path="/starships" component={StarshipsPage} />
 				<Route exact path="/films" component={FilmsPage} />
+				<Route exact path="/people/:name/:id" component={CharacterDetails} />
                 <Route component={Error404} />
 			</Switch>
 		</BrowserRouter>
