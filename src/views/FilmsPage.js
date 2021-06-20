@@ -20,7 +20,7 @@ function FilmsPage (props) {
                 <h1 className="text-white title mt-4 mb-2">Films</h1>
                 {
                     !!films ?
-                    <Cards elements ={films} />
+                    <Cards elements={films} route="films" />
                     :
                     <LoadingSpiner />
                 }
@@ -29,7 +29,7 @@ function FilmsPage (props) {
                 <div className="col-md-12 d-flex justify-content-center py-5">
                     {
                         !!films &&
-                        films.results.length > 0 ? (
+                        films.result.length > 0 ? (
                             <Pagination
                                 activePage={page}
                                 itemsCountPerPage={9}

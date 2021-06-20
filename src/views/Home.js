@@ -1,22 +1,22 @@
 import { useContext } from 'react';
 import { Context } from '../stores/AppContext';
-import Carousel from '../components/Carousel'
+import Carousel from '../components/Carousel';
+import CarouselFilms from '../components/CarouselFilms';
 import './Home.css';
 
-function Home (props) {
+function Home () {
     
-    const {store, actions} = useContext(Context);
+    const {store} = useContext(Context);
     const { people, species, planets, starships, vehicles, films } = store;
 
     return (
         <main className="container">
-            <Carousel section={people} title="Characters" />
-            <Carousel section={species} title="Species" />
-            <Carousel section={planets} title="Planets" />
-            <Carousel section={starships} title="Starships" />
-            <Carousel section={vehicles} title="Vehicles" />
-            {/* 
-            <Carousel section={films} title="Films" /> */}
+            <Carousel section={people} title="Characters" route="people"/>
+            <Carousel section={species} title="Species" route="species" />
+            <Carousel section={planets} title="Planets" route="planets" />
+            <Carousel section={starships} title="Starships" route="starships" />
+            <Carousel section={vehicles} title="Vehicles" route="vehicles" />
+            <CarouselFilms section={films} title="Films" route="films" />
         </main>
     );
 }

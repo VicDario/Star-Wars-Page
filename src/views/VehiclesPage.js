@@ -20,7 +20,7 @@ function VehiclesPage (props) {
                 <h1 className="text-white title mt-4 mb-2">Vehicles</h1>
                 {
                     !!vehicles ?
-                    <Cards elements ={vehicles} />
+                    <Cards elements ={vehicles} route="vehicles" />
                     :
                     <LoadingSpiner />
                 }

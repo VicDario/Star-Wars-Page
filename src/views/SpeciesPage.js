@@ -20,7 +20,7 @@ function SpeciesPage (props) {
                 <h1 className="text-white title mt-4 mb-2">Species</h1>
                 {
                     !!species ?
-                    <Cards elements ={species} />
+                    <Cards elements ={species} route="species" />
                     :
                     <LoadingSpiner />
                 }

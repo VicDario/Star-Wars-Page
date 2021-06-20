@@ -20,7 +20,7 @@ function StarshipsPage (props) {
                 <h1 className="text-white title mt-4 mb-2">Starships</h1>
                 {
                     !!starships ?
-                    <Cards elements ={starships} />
+                    <Cards elements ={starships} route="starships" />
                     :
                     <LoadingSpiner />
                 }
