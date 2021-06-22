@@ -11,6 +11,7 @@ const getState = ({ getStore, getActions , setStore}) => {
             specie: null,
             planet: null,
             starship: null,
+            vehicle: null,
             favorites: [],
         },
         actions: {
@@ -223,6 +224,25 @@ const getState = ({ getStore, getActions , setStore}) => {
                     const data = await response.json();
                     setStore({ 
                         starship: data
+                    });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
+            getVehicle: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ 
+                        vehicle: data
                     });
                 } catch (error) {
                     setStore({

@@ -6,81 +6,72 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import "./CharacterDetails.css";
 import LoadingSpiner from "../components/LoadingSpinner";
 
-function StarshipDetails(props) {
+function VehicleDetails(props) {
     const params = useParams();
     const { store, actions } = useContext(Context);
-    const { starship, favorites } = store;
+    const { vehicle, favorites } = store;
 
     useEffect(() => {
-        actions.getStarship(`https://www.swapi.tech/api/starships/${params.id}`);
+        actions.getVehicle(`https://www.swapi.tech/api/vehicles/${params.id}`);
     }, []);
 
     return (
         <div className="container">
-            {!!starship && 
-                starship.result.properties.name.split(" ").join("").toLowerCase() === params.name ?
+            {!!vehicle && 
+                vehicle.result.properties.name.split(" ").join("").toLowerCase() === params.name ?
                 (
                 <div className="row my-5 mx-2 card-details p-0">
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
                                     src="https://via.placeholder.com/500/500"
-                                    alt={starship.result.properties.name}
+                                    alt={vehicle.result.properties.name}
                                 />
                     </div>
                     <div className="col-md-6 col-sm-12 details pt-4">
-                            <h1 className="text-white">{starship.result.properties.name}</h1>
+                            <h1 className="text-white">{vehicle.result.properties.name}</h1>
                             <ul className="list-details text-white text-capitalize ">
                                 <li className="d-flex justify-content-between">
-                                    <span>Model:</span><span>{starship.result.properties.model}</span>
+                                    <span>Model:</span><span>{vehicle.result.properties.model}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Starship class:</span><span>{starship.result.properties.starship_class}</span>
+                                    <span>vehicle class:</span><span>{vehicle.result.properties.vehicle_class}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Manufacturer:</span><span>{starship.result.properties.manufacturer}</span>
+                                    <span>Manufacturer:</span><span>{vehicle.result.properties.manufacturer}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                   <span>Cost in credits:</span><span>{starship.result.properties.cost_in_credits}</span>
+                                   <span>Cost in credits:</span><span>{vehicle.result.properties.cost_in_credits}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Length:</span><span>{starship.result.properties.length}</span>
+                                    <span>Length:</span><span>{vehicle.result.properties.length}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Crew:</span><span>{starship.result.properties.crew}</span>
+                                    <span>Crew:</span><span>{vehicle.result.properties.crew}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Passengers:</span><span>{starship.result.properties.passengers}</span>
+                                    <span>Passengers:</span><span>{vehicle.result.properties.passengers}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Max atmosphering speed:</span><span>{starship.result.properties.max_atmosphering_speed}</span>
+                                    <span>Max atmosphering speed:</span><span>{vehicle.result.properties.max_atmosphering_speed}</span>
                                 </li>
                                 <li className="d-flex justify-content-between">
-                                    <span>Hyperdrive rating:</span><span>{starship.result.properties.hyperdrive_rating}</span>
-                                </li>
-                                <li className="d-flex justify-content-between">
-                                    <span>MGLT:</span><span>{starship.result.properties.MGLT}</span>
-                                </li>
-                                <li className="d-flex justify-content-between">
-                                    <span>Cargo capacity:</span><span>{starship.result.properties.cargo_capacity}</span>
-                                </li>
-                                <li className="d-flex justify-content-between">
-                                    <span>Consumables:</span><span>{starship.result.properties.consumables}</span>
+                                    <span>Consumables:</span><span>{vehicle.result.properties.consumables}</span>
                                 </li>
                             </ul>
                             <div className="buttons d-flex justify-content-between">
-                                <Link to="/starships" className="btn-link">
-                                    <button type="button" className="btn btn-light mb-4">Back to Starships</button>
+                                <Link to="/vehicles" className="btn-link">
+                                    <button type="button" className="btn btn-light mb-4">Back to Vehicles</button>
                                 </Link>
-                                {   (favorites.indexOf(starship.result.properties.name) === -1) ?
+                                {   (favorites.indexOf(vehicle.result.properties.name) === -1) ?
                                     (
                                     <button type="button" className="btn-like btn btn-light mb-4" 
-                                    onClick={() => actions.addFavorite(starship.result.properties.name)} >
+                                    onClick={() => actions.addFavorite(vehicle.result.properties.name)} >
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>
                                     ) : (
                                     <button type="button" className="btn-like-active btn btn-light mb-4" 
-                                    onClick={() => actions.deleteFavorite(starship.result.properties.name)} >
+                                    onClick={() => actions.deleteFavorite(vehicle.result.properties.name)} >
                                         <FontAwesomeIcon icon={faHeart} />
                                     </button>
                                     )
@@ -100,4 +91,4 @@ function StarshipDetails(props) {
     );
 }
 
-export default StarshipDetails;
+export default VehicleDetails;

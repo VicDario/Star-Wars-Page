@@ -13,6 +13,7 @@ import CharacterDetails from './views/CharacterDetails';
 import SpecieDetails from './views/SpecieDetails';
 import PlanetDetails from './views/PlanetDetails';
 import StarshipDetails from './views/StartshipDetails';
+import VehicleDetails from './views/VehicleDetails';
 import Error404 from './views/Error404';
 
 function App() {
@@ -30,6 +31,8 @@ function App() {
 				<Route exact path="/species/:name/:id" component={SpecieDetails} />
 				<Route exact path="/planets/:name/:id" component={PlanetDetails} />
 				<Route exact path="/starships/:name/:id" component={StarshipDetails} />
+				<Route exact path="/vehicles/:name/:id" component={VehicleDetails} />
+
                 <Route component={Error404} />
 			</Switch>
 		</BrowserRouter>
