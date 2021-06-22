@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions , setStore}) => {
             starships: null,
             character: null,
             specie: null,
+            planet: null,
             favorites: [],
         },
         actions: {
@@ -183,6 +184,25 @@ const getState = ({ getStore, getActions , setStore}) => {
                     let home = await getHome(data.result.properties.homeworld);
                     setStore({ 
                         specie : {data: data, planet: home}
+                    });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
+            getPlanet: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+                    setStore({ 
+                        planet: data
                     });
                 } catch (error) {
                     setStore({

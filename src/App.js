@@ -11,6 +11,7 @@ import StarshipsPage from './views/StarshipsPage';
 import VehiclesPage from './views/VehiclesPage';
 import CharacterDetails from './views/CharacterDetails';
 import SpecieDetails from './views/SpecieDetails';
+import PlanetDetails from './views/PlanetDetails';
 import Error404 from './views/Error404';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
 				<Route exact path="/films" component={FilmsPage} />
 				<Route exact path="/people/:name/:id" component={CharacterDetails} />
 				<Route exact path="/species/:name/:id" component={SpecieDetails} />
+				<Route exact path="/planets/:name/:id" component={PlanetDetails} />
                 <Route component={Error404} />
 			</Switch>
 		</BrowserRouter>
