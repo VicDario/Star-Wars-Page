@@ -26,7 +26,6 @@ function App() {
 				<Route exact path="/planets" component={PlanetsPage} />
 				<Route exact path="/vehicles" component={VehiclesPage} />
 				<Route exact path="/starships" component={StarshipsPage} />
-				<Route exact path="/films" component={FilmsPage} />
 				<Route exact path="/people/:name/:id" component={CharacterDetails} />
 				<Route exact path="/species/:name/:id" component={SpecieDetails} />
 				<Route exact path="/planets/:name/:id" component={PlanetDetails} />
