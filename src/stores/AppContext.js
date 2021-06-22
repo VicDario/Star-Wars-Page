@@ -5,7 +5,6 @@ export const Context = createContext(null);
 
 const injectContext = PassedComponent => {
     const StoreWrapper = props => {
-        // API URL https://swapi.dev/api/
         const [state, setState] = useState(getState({
             getStore: () => state.store,
             getActions: () => state.actions,

@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions , setStore}) => {
             films: null,
             starships: null,
             character: null,
+            favorites: [],
         },
         actions: {
             updatePeople: async (url) => {
@@ -149,6 +150,16 @@ const getState = ({ getStore, getActions , setStore}) => {
                         error: error.message
                     })
                 }
+            },
+            addFavorite: (element) => {
+                let { favorites } = getStore();
+                favorites.push(element);
+                setStore({favorites})
+            },
+            deleteFavorite: (element) => {
+                let { favorites } = getStore();
+                let  newlist = favorites.filter(item => item !== element);
+                setStore({favorites: newlist})
             }
         }
     }

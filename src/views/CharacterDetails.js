@@ -1,13 +1,16 @@
 import { useParams, Link } from "react-router-dom";
-import { useEffect, useContext } from "react";
+import { useEffect, useContext, useState } from "react";
 import { Context } from "../stores/AppContext";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import "./CharacterDetails.css";
 import LoadingSpiner from "../components/LoadingSpinner";
 
 function CharacterDetails(props) {
     const params = useParams();
     const { store, actions } = useContext(Context);
-    const { character } = store;
+    const { character, favorites } = store;
+    let [isInFavorites, setIsInFavorites] = useState(false);
 
     useEffect(() => {
         actions.getCharacter(`https://www.swapi.tech/api/people/${params.id}`);
@@ -57,9 +60,26 @@ function CharacterDetails(props) {
                                         </div>}
                                 </li>
                             </ul>
-                            <Link to="/people">
-                                <button type="button" className="back-button btn btn-light mb-4">Back to Characters</button>
-                            </Link>
+                            <div className="buttons d-flex justify-content-between">
+                                <Link to="/people" className="btn-link">
+                                    <button type="button" className="btn btn-light mb-4">Back to Characters</button>
+                                </Link>
+                                {   (favorites.indexOf(character.data.result.properties.name) === -1) ?
+                                    (
+                                    <button type="button" className="btn-like btn btn-light mb-4" 
+                                    onClick={() => actions.addFavorite(character.data.result.properties.name)} >
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </button>
+                                    ) : (
+                                    <button type="button" className="btn-like-active btn btn-light mb-4" 
+                                    onClick={() => actions.deleteFavorite(character.data.result.properties.name)} >
+                                        <FontAwesomeIcon icon={faHeart} />
+                                    </button>
+                                    )
+
+                                }
+                                
+                            </div>
                     </div>
                 </div>
             ) : (

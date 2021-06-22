@@ -11,3 +11,17 @@
 .dropdown-item {
     width: auto;
 }
+
+.trash-icon:hover {
+    color: red;
+}
+.number-favorites{
+    margin-left: 3px;
+    background-color: rgb(53, 59, 85);
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+    background-color: #e9ecef38;
+}
