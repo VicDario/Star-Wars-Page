@@ -8,6 +8,7 @@ const getState = ({ getStore, getActions , setStore}) => {
             films: null,
             starships: null,
             character: null,
+            specie: null,
             favorites: [],
         },
         actions: {
@@ -144,6 +145,44 @@ const getState = ({ getStore, getActions , setStore}) => {
                     let home = await getHome(data.result.properties.homeworld);
                     setStore({ 
                         character : {data: data, planet: home}
+                    });
+                } catch (error) {
+                    setStore({
+                        error: error.message
+                    })
+                }
+            },
+            getSpecie: async (url) => {
+                try {
+                    const response = await fetch(url, {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    });
+                    if (response.status !== 200) throw new Error("Error API");
+                    const data = await response.json();
+
+                    let getHome = async (url) => {
+                        try {
+                            const response = await fetch(url, {
+                                method: 'GET',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                }
+                            });
+                            if (response.status !== 200) throw new Error("Error API");
+                            const data = await response.json();
+                            return data;
+                        } catch (error) {
+                            setStore({
+                                error: error.message
+                            })
+                        }
+                    }
+                    let home = await getHome(data.result.properties.homeworld);
+                    setStore({ 
+                        specie : {data: data, planet: home}
                     });
                 } catch (error) {
                     setStore({
