@@ -3,6 +3,9 @@ import {Link} from "react-router-dom"
 import LoadingSpiner from './LoadingSpinner';
 
 function Carousel (props) {
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
     return (
         <div className="row my-5">
         <h2 className="text-white">
@@ -16,7 +19,7 @@ function Carousel (props) {
                 props.section.results.map((item, key) => {
                 return (
                         <div className="card card-home my-4" key={key} >
-                            <img src="https://via.placeholder.com/200/300" className="card-img-top" alt="..." />
+                            <img src={`/img/${getImgName(item.name)}`} className="card-img-top" alt={item.name}/>
                             <div className="card-body">
                                 <h4 className="card-text text-white">{item.name}</h4>
                             </div>
