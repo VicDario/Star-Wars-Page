@@ -2,11 +2,11 @@ import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import injectContext from "./stores/AppContext";
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'
 import Home from './views/Home';
 import CharactersPage from './views/CharactersPage';
 import SpeciesPage from './views/SpeciesPage';
 import PlanetsPage from './views/PlanetsPage';
-import FilmsPage from './views/FilmsPage';
 import StarshipsPage from './views/StarshipsPage';
 import VehiclesPage from './views/VehiclesPage';
 import CharacterDetails from './views/CharacterDetails';
@@ -35,6 +35,7 @@ function App() {
 
                 <Route component={Error404} />
 			</Switch>
+			<Footer />
 		</BrowserRouter>
 	);
 }

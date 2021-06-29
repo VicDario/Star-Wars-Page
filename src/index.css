@@ -2,6 +2,7 @@ html {
   background-image: url('/src/img/bg_starsR.jpg');
   background-repeat: no-repeat;
   background-color: #151515;
+  background-repeat: repeat-y;
   background-position: right;
 }
 
@@ -12,7 +13,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: transparent !important;
   background-image: url('/src/img/bg_starsL.jpg');
-  background-repeat: no-repeat;
+  background-repeat: repeat-y;
+  background-position: left;
   min-height: 100vh;
 }
 
@@ -32,4 +34,13 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background-color: #a8bbbf;
+}
+
+@media (max-width: 380px) {
+  html {
+    background-image: none;
+  }
+  body {
+    background-image: none;
+  }
 }
