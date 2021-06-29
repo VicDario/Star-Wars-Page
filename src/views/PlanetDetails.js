@@ -15,6 +15,10 @@ function PlanetDetails(props) {
         actions.getPlanet(`https://www.swapi.tech/api/planets/${params.id}`);
     }, []);
 
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
+
     return (
         <div className="container">
             {!!planet && 
@@ -24,7 +28,7 @@ function PlanetDetails(props) {
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
-                                    src="https://via.placeholder.com/500/500"
+                                    src={`/img/${getImgName(planet.result.properties.name)}`}
                                     alt={planet.result.properties.name}
                                 />
                     </div>

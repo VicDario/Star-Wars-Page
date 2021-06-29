@@ -15,6 +15,9 @@ function SpecieDetails(props) {
         actions.getSpecie(`https://www.swapi.tech/api/species/${params.id}`);
     }, []);
 
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
     return (
         <div className="container">
             {!!specie && 
@@ -24,7 +27,7 @@ function SpecieDetails(props) {
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
-                                    src="https://via.placeholder.com/500/500"
+                                    src={`/img/${getImgName(specie.data.result.properties.name)}`}
                                     alt={specie.data.result.properties.name}
                                 />
                     </div>

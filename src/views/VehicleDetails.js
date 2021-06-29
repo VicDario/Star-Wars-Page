@@ -15,6 +15,10 @@ function VehicleDetails(props) {
         actions.getVehicle(`https://www.swapi.tech/api/vehicles/${params.id}`);
     }, []);
 
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
+
     return (
         <div className="container">
             {!!vehicle && 
@@ -24,7 +28,7 @@ function VehicleDetails(props) {
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
-                                    src="https://via.placeholder.com/500/500"
+                                    src={`/img/${getImgName(vehicle.result.properties.name)}`}
                                     alt={vehicle.result.properties.name}
                                 />
                     </div>

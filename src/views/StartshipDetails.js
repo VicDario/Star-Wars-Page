@@ -15,6 +15,10 @@ function StarshipDetails(props) {
         actions.getStarship(`https://www.swapi.tech/api/starships/${params.id}`);
     }, []);
 
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
+
     return (
         <div className="container">
             {!!starship && 
@@ -24,7 +28,7 @@ function StarshipDetails(props) {
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
-                                    src="https://via.placeholder.com/500/500"
+                                    src={`/img/${getImgName(starship.result.properties.name)}`}
                                     alt={starship.result.properties.name}
                                 />
                     </div>

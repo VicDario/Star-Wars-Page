@@ -15,6 +15,10 @@ function CharacterDetails(props) {
         actions.getCharacter(`https://www.swapi.tech/api/people/${params.id}`);
     }, []);
 
+    const getImgName = name => {
+        return name.toLowerCase().split(" ").join("-").split("/").join("-") + ".jpg";
+    }
+
     return (
         <div className="container">
             {!!character && 
@@ -24,7 +28,7 @@ function CharacterDetails(props) {
                     <div className="col-md-6 col-sm-12 p-0">
                                 <img
                                     className="img-details"
-                                    src="https://via.placeholder.com/500/500"
+                                    src={`/img/${getImgName(character.data.result.properties.name)}`}
                                     alt={character.data.result.properties.name}
                                 />
                     </div>
