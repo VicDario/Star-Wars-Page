@@ -1,10 +1,11 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import 'bootstrap/dist/js/bootstrap.bundle';
-import '@popperjs/core';
+import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
+import '@popperjs/core';
+import 'bootstrap/dist/js/bootstrap.bundle';
 
-import App from './App';
+import App from './routes/App';
 
 // Styles
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -15,7 +16,9 @@ const root = createRoot(container);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
