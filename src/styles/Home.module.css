@@ -1,0 +1,50 @@
+.main {
+	width: 100vw;
+	height: 100vh;
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	grid-template-rows: repeat(9, 1fr);
+}
+
+.main__central {
+	grid-column: 4 / 7;
+	grid-row: 4 / 7;
+	place-self: center;
+}
+.main__central--image {
+	width: 100%;
+}
+
+.main__central--title {
+	text-align: center;
+}
+
+.main__link-characters {
+	grid-column: 3 / 4;
+	grid-row: 3 / 4;
+}
+.main__link-planets {
+	grid-column: 2 / 3;
+	grid-row: 5 / 6;
+}
+.main__link-species {
+	grid-column: 3 / 4;
+	grid-row: 7 / 8;
+}
+.main__link-vehicles {
+	grid-column: 7 / 8;
+	grid-row: 3 / 4;
+}
+.main__link-starships {
+	grid-column: 8 / 9;
+	grid-row: 5 / 6;
+}
+.main__link-films {
+	grid-column: 7 / 8;
+	grid-row: 7 / 8;
+}
+
+.link_position {
+	justify-self: center;
+	align-self: flex-end;
+}
