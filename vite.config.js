@@ -7,6 +7,9 @@ function getAliases() {
     '@components': path.resolve(__dirname, './src/components'),
     '@pages': path.resolve(__dirname, './src/pages'),
     '@context': path.resolve(__dirname, './src/context'),
+    '@hooks': path.resolve(__dirname, './src/hooks'),
+    '@styles': path.resolve(__dirname, './src/styles'),
+    '@assets': path.resolve(__dirname, './src/assets'),
   };
 }
 
